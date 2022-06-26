@@ -28,6 +28,9 @@ namespace BinarySearchTree_BST
             // Checking the size of the BSt
             Console.WriteLine("Size of BST is :" + Size(Root));
             Console.WriteLine("\n");
+
+            // Search the elemnt 63 in the BST
+            Console.WriteLine("Search of BST is :" + Search(Root, 63));
         }
 
         // Creating node Class
@@ -126,6 +129,27 @@ namespace BinarySearchTree_BST
             else
             {
                 return (Size(Root.Left) + Size(Root.Right)) + 1;
+            }
+        }
+
+        // Creating method to search the element in the BST
+        public static bool Search(Node Root, int Key)
+        {
+            if (Root == null)
+            {
+                return false;
+            }
+            if (Root.Data > Key)
+            {
+                return Search(Root.Left, Key);
+            }
+            else if (Root.Data == Key)
+            {
+                return true;
+            }
+            else
+            {
+                return Search(Root.Right, Key);
             }
         }
     }
