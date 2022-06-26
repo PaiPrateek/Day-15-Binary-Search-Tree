@@ -7,7 +7,8 @@ namespace BinarySearchTree_BST
         static void Main(string[] args)
         {
             Node Root = CreateTree();
-            // Enter number =  56 30 0 0 70 0 0 as input to get required BST
+            // Enter number =  56 30 22 11 3 0 0 16 0 0 0 40 0 0 70 60 0 65 63 0 0 67 0 0 95 0 0
+            // as input to get required BST
 
             // Display in-Order Type BST
             Console.WriteLine("In-Order BST");
@@ -22,6 +23,10 @@ namespace BinarySearchTree_BST
             // Display in-Order Type BST
             Console.WriteLine("Post-Order BST");
             PostOrder(Root);
+            Console.WriteLine("\n");
+
+            // Checking the size of the BSt
+            Console.WriteLine("Size of BST is :" + Size(Root));
             Console.WriteLine("\n");
         }
 
@@ -109,6 +114,19 @@ namespace BinarySearchTree_BST
             Console.WriteLine("Enterc right for :" + data);
             Root.Right = CreateTree();
             return Root;
+        }
+
+        // Creating method to check the size of the BSt
+        public static int Size(Node Root)
+        {
+            if (Root == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (Size(Root.Left) + Size(Root.Right)) + 1;
+            }
         }
     }
 }
